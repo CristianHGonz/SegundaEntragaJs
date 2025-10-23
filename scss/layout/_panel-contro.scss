@@ -1,0 +1,58 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixin-extend" as *;
+
+.datosFormulario {
+  display: grid;
+  grid-template-areas: "instalacion resultados";
+
+  grid-template-columns: 50% 50%;
+  grid-auto-rows: auto;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+
+  .instalacion {
+    grid-area: instalacion;
+    margin-top: 2rem;
+    .textLabelInstalacion {
+      margin: 1rem;
+    }
+    .importeInstalacion {
+      margin: 1rem 1rem 0.5rem 1rem;
+    }
+    .aclaracion {
+      font-size: 10px;
+    }
+  }
+
+  .resultados {
+    grid-area: resultados;
+    border-left: 1px solid #aaa9;
+  }
+}
+
+.logo-panel-control {
+  display: block;
+  grid-area: img-panel-control;
+  width: 75%;
+  margin-top: 5rem;
+  animation: girar 10s linear infinite;
+}
+
+@keyframes girar {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+.mostrarResultados {
+  display: none;
+}
+
+.divPrecios {
+  background-color: cadetblue;
+}

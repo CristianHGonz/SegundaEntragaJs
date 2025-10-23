@@ -1,0 +1,47 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixin-extend" as *;
+
+.contacto-primary {
+  display: grid;
+  grid-template-areas:
+    "contacto-ubicacion contacto-form"
+    "contacto-siguenos contacto-form";
+  gap: 10px;
+  @include alineacion(center);
+}
+.contacto-ubicacion {
+  grid-area: contacto-ubicacion;
+  grid-template-columns: 1/2;
+}
+.contacto-form {
+  grid-area: contacto-form;
+  grid-row: 1/4;
+}
+.contacto-siguenos {
+  grid-area: contacto-siguenos;
+}
+.contacto-p {
+  margin: 1rem;
+}
+.contact-map {
+  width: 10rem;
+  margin: 1rem;
+  border-radius: 1rem;
+}
+.logo-facebook,
+.logo-ig,
+.logo-x {
+  margin-top: 2rem;
+  width: 3rem;
+}
+.logo-whatsapp-contacto {
+  display: none;
+}
+.btn-enviar .btn-primary {
+  background-color: $bg-nav-fotter;
+  margin: 1rem;
+}
+.btn-enviar .btn-primary:hover {
+  background-color: #136788;
+  color: #f4f9f9;
+}

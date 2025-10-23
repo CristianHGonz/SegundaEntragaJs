@@ -1,0 +1,24 @@
+@use "../utilities/variables" as *;
+
+.img-index {
+  width: 500px;
+  height: 250px;
+  border-radius: 15px;
+  margin-left: 1rem;
+  transition: 0.5s;
+}
+.text-nota-index {
+  text-align: justify;
+  padding: 1rem;
+}
+.title-nota-index {
+  text-align: center;
+  font-size: 26px;
+  align-content: center;
+}
+
+/*link de la barra de nav*/
+@mixin alineacion($center) {
+  text-align: $center;
+  align-items: center;
+}

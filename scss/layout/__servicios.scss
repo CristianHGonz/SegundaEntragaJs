@@ -1,0 +1,62 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixin-extend" as *;
+
+.servicios-titulo {
+  text-decoration: underline;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+.servicios-subtitulo1,
+.servicios-subtitulo2 {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.f-optica {
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+.service1 {
+  display: grid;
+  grid-template-areas: "container-table img-ftth";
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  @include alineacion(center);
+  gap: 10px;
+}
+.container-table {
+  grid-area: container-table;
+}
+.fibra-optica {
+  @include alineacion(center);
+}
+.img-ftth {
+  grid-area: img-ftth;
+  width: 70%;
+  border-radius: 15px;
+}
+.wireless {
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+.service2 {
+  display: grid;
+  grid-template-areas: " wireles-img container-table1";
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  gap: 10px;
+  @include alineacion(center);
+  margin-bottom: 2rem;
+}
+.wireless-img {
+  grid-area: wireles-img;
+  width: 70%;
+  border-radius: 15px;
+}
+.wireless-conteiner {
+  text-align: center;
+  justify-content: center;
+}
+.container-table1 {
+  grid-area: container-table1;
+}

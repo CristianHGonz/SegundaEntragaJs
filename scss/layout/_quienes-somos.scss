@@ -1,0 +1,51 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixin-extend" as *;
+
+.title-quienes {
+  text-decoration: underline;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+.historia {
+  display: grid;
+  grid-template-areas:
+    "text-historia img-edificio"
+    "img-crecimiento text-crecimiento"
+    "text-ideas img-ideas";
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  gap: 10px;
+}
+.text-historia {
+  grid-area: text-historia;
+  margin: auto 0;
+  text-align: justify;
+}
+.img-edificio {
+  grid-area: img-edificio;
+  width: 30rem;
+  margin: 0 4rem;
+  border-radius: 1rem;
+}
+.img-crecimiento {
+  grid-area: img-crecimiento;
+  width: 30rem;
+  margin: 0 1.5rem;
+  border-radius: 1rem;
+}
+.text-crecimiento {
+  grid-area: text-crecimiento;
+  margin: auto 0;
+  text-align: justify;
+}
+.text-ideas {
+  grid-area: text-ideas;
+  margin: auto 0;
+  text-align: justify;
+}
+.img-ideas {
+  grid-area: img-ideas;
+  width: 30rem;
+  margin: 0 4rem 2rem;
+  border-radius: 1rem;
+}

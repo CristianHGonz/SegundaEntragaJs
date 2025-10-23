@@ -1,0 +1,15 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixin-extend" as *;
+
+.footer {
+  text-align: center;
+  height: 30px;
+  margin: 1rem 0;
+}
+.footer p {
+  color: #f0f0f0;
+}
+.footer p a {
+  text-decoration: none;
+  color: #f0f0f0;
+}

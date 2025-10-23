@@ -1,0 +1,21 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixin-extend" as *;
+
+.social__media {
+  display: flex;
+  flex-flow: column wrap;
+  position: fixed;
+  top: 35%;
+  right: 0;
+
+  .social__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    transition: 0.5s;
+  }
+}
+.social__icon:hover {
+  transform: scale(1.5);
+  transition: 0.5s;
+}

@@ -1,0 +1,24 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixin-extend" as *;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: $text-color-secondary;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh; /*config para centrar mandar el footer abajo*/
+}
+main {
+  margin-bottom: auto !important;
+}
+
+nav,
+footer {
+  background-color: $bg-nav-fotter;
+}
+

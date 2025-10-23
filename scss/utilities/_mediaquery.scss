@@ -1,0 +1,430 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixin-extend" as *;
+
+@media (max-width: 1400px) {
+  .container,
+  .nav-bar,
+  .nav-bar01,
+  footer {
+    width: 100%;
+  }
+
+  .logo img {
+    width: 30rem;
+    height: 5.25rem;
+  }
+
+  .main-Conteiner {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "img1 img2"
+      "secondary-title1 secondary-title2"
+      "text-left text-right"
+      "img3 img4"
+      "secondary-title3 secondary-title4"
+      "text-left1 text-right1";
+  }
+  .content {
+    text-align: center;
+  }
+
+  .nav-bar ul li {
+    margin: 1rem;
+  }
+
+  /*quienes somos*/
+  .img-edificio,
+  .img-crecimiento,
+  .img-ideas {
+    width: 55%;
+    margin: 1rem auto;
+  }
+
+  .historia {
+    grid-template-areas:
+      "text-historia"
+      "img-edificio"
+      "text-crecimiento"
+      "img-crecimiento"
+      "text-ideas"
+      "img-ideas";
+    grid-template-columns: 1fr;
+  }
+
+  .text-historia,
+  .text-crecimiento,
+  .text-ideas {
+    padding: 0 1rem;
+    text-align: justify;
+  }
+
+  .logo img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .title-quienes {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container,
+  .nav-bar,
+  .nav-bar01,
+  footer {
+    width: 100%;
+  }
+
+  .logo img {
+    width: 40rem;
+    height: 4.75rem;
+  }
+
+  .main-Conteiner {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "img1 img2"
+      "secondary-title1 secondary-title2"
+      "text-left text-right"
+      "img3 img4"
+      "secondary-title3 secondary-title4"
+      "text-left1 text-right1";
+  }
+  .content {
+    text-align: center;
+  }
+
+  .nav-bar ul li {
+    margin: 1rem;
+  }
+  .whatsapp {
+    right: 0.5rem;
+    bottom: 2.5rem;
+    z-index: 4;
+  }
+  .logo-whatsapp {
+    width: 2rem;
+  }
+  /*servicios*/
+  .service1 {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "img-ftth"
+      "container-table";
+  }
+  .service2 {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "wireless-conteiner"
+      "container-table1";
+  }
+
+  .img-ftth,
+  .wireless-img {
+    width: 50%;
+  }
+
+  /* quienes somos*/
+  @media (max-width: 1024px) {
+    .img-edificio,
+    .img-crecimiento,
+    .img-ideas {
+      width: 55%;
+      margin: 1rem auto;
+    }
+
+    .historia {
+      grid-template-areas:
+        "text-historia"
+        "img-edificio"
+        "text-crecimiento"
+        "img-crecimiento"
+        "text-ideas"
+        "img-ideas";
+      grid-template-columns: 1fr;
+    }
+
+    .text-historia,
+    .text-crecimiento,
+    .text-ideas {
+      padding: 0 1rem;
+      text-align: justify;
+    }
+
+    .logo img {
+      max-width: 27rem;
+      height: auto;
+    }
+
+    .title-quienes {
+      font-size: 1.5rem;
+    }
+  }
+  /*Panel de control
+  .logo-panel-control {
+    display: none;
+  }
+  .container-panel-control {
+    grid-template-columns: 1fr;
+    grid-template-areas: "control form";
+    grid-template-rows: 1fr;
+    text-align: center;
+    align-items: center;
+  }
+  .form {
+    margin: 0;
+  }*/
+
+  /* contacto */
+
+  .contacto-primary {
+    grid-template-areas:
+      "contacto-form contacto-siguenos "
+      "contact-map";
+    text-align: center;
+    align-items: center;
+  }
+
+  .contacto-form {
+    grid-area: contacto-form;
+  }
+  .contacto-siguenos {
+    grid-area: contacto-siguenos;
+  }
+  .contacto-p {
+    margin: 1rem;
+  }
+  .contact-map {
+    display: none;
+  }
+
+  .logo-facebook,
+  .logo-ig,
+  .logo-x {
+    margin-top: 2rem;
+    width: 3rem;
+  }
+  .whatsapp {
+    right: 2.5rem;
+    bottom: 3rem;
+    z-index: 4;
+  }
+  .whatsapp .logo-whatsapp {
+    width: 3rem;
+  }
+}
+@media (max-width: 768px) {
+  .container,
+  .nav-bar,
+  .nav-bar01,
+  footer {
+    width: 100%;
+  }
+  footer {
+    font-size: 12px;
+  }
+  .nav-bar01 {
+    flex-direction: column;
+    height: 9rem;
+  }
+
+  .nav-bar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-bar ul li {
+    margin: 2px;
+    padding: 1px;
+  }
+
+  .logo img {
+    width: 35rem;
+    height: 4.75rem;
+    margin-top: 6rem !important;
+  }
+
+  .main-Conteiner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "img1"
+      "secondary-title1"
+      "text-left"
+      "img2"
+      "secondary-title2"
+      "text-right"
+      "img3"
+      "secondary-title3"
+      "text-left1"
+      "img4"
+      "secondary-title4"
+      "text-right1";
+  }
+
+  .img1 img,
+  .img2 img,
+  .img3 img,
+  .img4 img {
+    width: 100%;
+    height: auto;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .service1,
+  .service2,
+  .container-panel-control,
+  .contacto-primary {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "img-panel-control"
+      "form";
+  }
+
+  .form,
+  .logo-panel-control {
+    width: 90%;
+    margin: auto;
+  }
+  .whatsapp {
+    right: 0rem;
+    bottom: 0.5rem;
+    z-index: 4;
+  }
+  .logo-whatsapp {
+    width: 2rem;
+  }
+  /*servicios*/
+  .service1 {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "img-ftth"
+      "container-table";
+  }
+  .service2 {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "wireless-conteiner"
+      "container-table1";
+  }
+
+  .img-ftth,
+  .wireless-img {
+    width: 50%;
+  }
+  /*panel de control*/
+  .img-panel-control .logo-panel-control {
+    width: 50%;
+    margin-top: 5rem;
+  }
+  /*contacto */
+  .contacto-primary {
+    grid-template-areas:
+      "contacto-siguenos "
+      "contact-map"
+      "contacto-form";
+    text-align: center;
+    align-items: center;
+  }
+
+  .contacto-form {
+    grid-area: contacto-form;
+  }
+  .contacto-siguenos {
+    grid-area: contacto-siguenos;
+  }
+  .contacto-p {
+    margin: 1rem;
+  }
+  .contact-map {
+    display: none;
+  }
+  .logo-facebook,
+  .logo-ig,
+  .logo-x {
+    margin-top: 2rem;
+    width: 3rem;
+  }
+  .whatsapp {
+    right: 0.5rem;
+    bottom: 1.75rem;
+    z-index: 4;
+  }
+  .whatsapp .logo-whatsapp {
+    width: 3rem;
+  }
+  .logo img {
+    width: 30rem !important;
+    height: 4.75rem !important;
+    margin-top: 5rem;
+  }
+}
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+  .primary-text {
+    margin: 0 0.5rem;
+  }
+
+  .nav-bar ul li a {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .logo img {
+    width: 20rem !important;
+    height: 4.75rem !important;
+    margin-top: 5rem;
+  }
+  .text-footer {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .contact-map,
+  .logo-facebook,
+  .logo-ig,
+  .logo-x {
+    width: 100%;
+  }
+
+  /*.whatsapp {
+    right: 1rem;
+    bottom: 1rem;
+  }*/
+
+  .logo-whatsapp {
+    display: none;
+  }
+  /* servicios 480p */
+  /* con la query anterior queda responsive*/
+
+  /*panel de control*/
+  .img-panel-control .logo-panel-control {
+    width: 0.1rem;
+    margin-top: 5rem;
+  }
+  /*contacto*/
+  .logo-whatsapp-contacto {
+    display: inline;
+  }
+  .logo-whatsapp-contacto,
+  .logo-facebook,
+  .logo-ig,
+  .logo-x {
+    margin-top: 0rem;
+    width: 3rem;
+  }
+  .contacto-primary {
+    grid-template-areas:
+      "contacto-form"
+      "contacto-siguenos ";
+    text-align: center;
+    align-items: center;
+  }
+  .social__media {
+    display: none;
+  }
+}

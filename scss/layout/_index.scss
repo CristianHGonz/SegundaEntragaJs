@@ -1,0 +1,121 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixin-extend" as *;
+
+.container {
+  margin-top: 11rem;
+  margin-bottom: 1.5rem;
+}
+
+/*index*/
+h1 {
+  text-align: center;
+  color: $text-color-secondary;
+  font-size: 40px;
+  margin: 2rem 0;
+}
+// .content {
+//   filter: drop-shadow(10px 10px 10px #303232);
+// }
+.primary-text {
+  color: $text-color-secondary;
+  text-align: justify;
+}
+.main-Conteiner {
+  display: grid;
+  grid-template-areas:
+    "img1 img2"
+    "secondary-title1 secondary-title2"
+    "text-left text-right"
+    "img3 img4"
+    "secondary-title3 secondary-title4"
+    "text-left1 text-right1";
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  margin: 2rem;
+  place-items: center;
+
+  .img1 img {
+    grid-area: img1;
+    @extend .img-index;
+  }
+  .img1 img:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+  }
+
+  .img2 img {
+    grid-area: img2;
+    @extend .img-index;
+  }
+  .img2 img:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+  }
+  .img3 img {
+    grid-area: img3;
+    @extend .img-index;
+  }
+  .img3 img:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+  }
+  .img4 img {
+    grid-area: img4;
+    @extend .img-index;
+  }
+  .img4 img:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+  }
+
+  .text-left {
+    grid-area: text-left;
+    text-align: justify;
+    padding: 1rem;
+  }
+  .text-right {
+    grid-area: text-right;
+    text-align: justify;
+    padding: 1rem;
+  }
+  .secondary-title1 {
+    grid-area: secondary-title1;
+    text-align: center;
+    font-size: 26px;
+    align-content: center;
+    margin-top: 20px;
+  }
+
+  .secondary-title2 {
+    grid-area: secondary-title2;
+    text-align: center;
+    font-size: 26px;
+    align-content: center;
+    margin-top: 20px;
+  }
+  .secondary-title3 {
+    grid-area: secondary-title3;
+    text-align: center;
+    font-size: 26px;
+    align-content: center;
+    margin-top: 20px;
+  }
+  .text-left1 {
+    grid-area: text-left1;
+    text-align: justify;
+    padding: 1rem;
+  }
+  .secondary-title4 {
+    grid-area: secondary-title4;
+    text-align: center;
+    font-size: 26px;
+    align-content: center;
+    margin-top: 20px;
+  }
+  .text-right1 {
+    grid-area: text-right1;
+    text-align: justify;
+    padding: 1rem;
+  }
+}
