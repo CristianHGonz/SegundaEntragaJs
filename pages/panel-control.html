@@ -38,7 +38,7 @@
     />
     <!--ANIMACIONES -->
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> -->
   </head>
   <body>
     <header>
@@ -61,21 +61,22 @@
       </nav>
     </header>
     <main class="container" data-aos="zoom-in-up" data-aos-duration="1500">
+      <div id="divModal" class="modalPpal"></div>
       <div class="datosFormulario">
         <div class="instalacion">
-          <h3>Ingresa tus datos</h3>
-          <label for="nombreAlta">Ingresa tu Nombre y Apellido:</label>
-          <input type="text" name="nombreAlta" id="nombreAlta" />
+          <h3 class="tituloDatos">Ingresa tus datos:</h3>
+          <label class="dato1" for="nombreAlta"
+            >Ingresa tu Nombre y Apellido:</label
+          >
+          <input class="datos2" type="text" name="nombreAlta" id="nombreAlta" />
           <p class="error"></p>
-          <label for="direccion">Ingresa tu Dirección:</label>
-          <input type="text" name="direccion" id="direccion" />
+          <label class="dato1" for="direccion">Ingresa tu Dirección:</label>
+          <input class="datos2" type="text" name="direccion" id="direccion" />
           <p class="error"></p>
-          <label for="verificacion">Ingresa tu N° de verificación:</label>
-          <input type="text" name="verificacion" id="verificacion" />
-          <p class="error"></p>
-          <h4>Seleccione el plan que desea contratar</h4>
+
+          <h4 class="tituloDatos">Seleccione el plan que desea contratar</h4>
           <div id="muestraPlanes"></div>
-          <button id="btnConfirmar">Confirmar</button>
+          <button class="confirm" id="btnConfirmar">Confirmar</button>
         </div>
 
         <div class="resultados">
@@ -90,24 +91,36 @@
           </div>
           <div class="mostrarResultados" id="mostrarResultados1">
             <div class="divisor">
+              <p class="pe">FELICITACIONES</p>
               <strong id="muestraNombre"></strong>
 
-              <p>
-                Estas por contratar en tu domicilio situado en :
-                <strong id="muestraDomicilio"></strong>
+              <p class="pe">Estas por contratar en tu domicilio situado en :</p>
+
+              <strong id="muestraDomicilio"></strong>
+
+              <p class="pe">Un servicio de:</p>
+              <strong id="planConfirmado"> </strong>
+              <strong id="velocidadConfirmada"> </strong>
+              <p class="pe">Por el que por mes pagaras</p>
+              <p class="pe">
+                $ <strong id="importeAbono"></strong> + gastos administrativos
               </p>
-              <p>
-                Un servicio de:
-                <strong id="planConfirmado"> </strong>
-                <strong id="velocidadConfirmada"> </strong>
-              </p>
-              <p>
-                Por el que por mes pagaras $<strong id="importeAbono"></strong>
-                + gastos administrativos
-              </p>
+              <label for="montoInstalacion" class="montoInstalacion"
+                >De instalación debes pagar:$
+              </label>
+              <br />
+              <input
+                type="text"
+                name="montoInstalacion"
+                id="monto"
+                placeholder="Monto informado por whatsapp"
+              /><br />
               <input type="checkbox" name="politicas" id="politicas" />
               <label for="politicas"
-                ><a href="../asset/pdf/politicas.pdf"
+                ><a
+                  class="politi"
+                  href="../asset/pdf/politicas.pdf"
+                  target="_blank"
                   >Politicas de Uso</a
                 ></label
               ><br />

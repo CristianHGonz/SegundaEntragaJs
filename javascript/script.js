@@ -12,31 +12,55 @@ const planeador = () => {
         let div = document.createElement("div")
         div.className = "divPrecios"
         div.innerHTML = ` <p class="error"></p>
-       <p> Opción N° ${plan.id} Servicio: ${plan.servicio}</p>  
-       <p id="plan">Plan: ${plan.plan} <strong>Precio: $${plan.precio}</strong></p>
+        <p> Opción N° ${plan.id} Servicio:<strong>${plan.servicio}</strong>Plan: ${plan.plan}</p>
+       <p><strong>Precio: $${plan.precio}</strong></p>
        <button data-id=${plan.id} class="si"> <img id="si" src="../asset/images/contratar/si1.png" alt="contratar">Contratar</button>
-       <button class="no">Cancelar<img id="no" src="../asset/images/contratar/no1.png" alt="eliminar"></button>
-       `;
-
+       <button class="no"><img id="no" src="../asset/images/contratar/no1.png" alt="eliminar">Cancelar</button>
+      
+        `;
         muestraPlanes.appendChild(div);
-    });
+    }
+    );
     let si = document.querySelectorAll(".si");
     let no = document.querySelectorAll(".no");
 
+
     si.forEach((btn) => {
         btn.addEventListener("click", (e) => {
+
             let planComprado = planesDisponibles.find(
                 (plan) => plan.id == e.target.dataset.id
             );
-            contrato.push(planComprado)
-            planConfirmado.innerHTML = planComprado.servicio
-            velocidadConfirmada.innerHTML = planComprado.plan
-            importeAbono.innerHTML = planComprado.precio
+
+            if (contrato.length >= 1) {
+                divModal.innerHTML = ""
+                divModal.style.display = "flex"
+                let divNew = document.createElement("div")
+                divNew.innerHTML = `  <div class="modalContenido">
+                <strong id="cerrarModal" class="cerraX">X</strong>
+                <h3 class="titleModal">ERROR!</h3>
+                <p class="textModal">
+                SOLO puede selecionar un plan, eliminalo antes de seleccionar otro
+                </p>
+                </div>`;
+                divModal.appendChild(divNew);
+                divNew.addEventListener("click", () => {
+                    divModal.style.display = "none"
+                })
+            }
+            else {
+                contrato.push(planComprado)
+                planConfirmado.innerHTML = planComprado.servicio
+                velocidadConfirmada.innerHTML = planComprado.plan
+                importeAbono.innerHTML = planComprado.precio
+
+
+            }
 
         })
     })
     no.forEach((btn) => {
-        btn.addEventListener("click", (e) => {
+        btn.addEventListener("click", () => {
 
             let eliminarPlan = contrato.pop()
             planConfirmado.innerHTML = ""
@@ -45,6 +69,7 @@ const planeador = () => {
 
         })
     })
+
 }
 planeador()
 
@@ -53,12 +78,11 @@ const muestraNombre = document.querySelector("#muestraNombre")
 const btnConfirmar = document.querySelector("#btnConfirmar")
 const direccion = document.querySelector("#direccion")
 const muestraDomicilio = document.querySelector("#muestraDomicilio")
-const verificacion = document.querySelector("#verificacion")
-const muestraVerificación = document.querySelector("#muestraVerificación")
 const planConfirmado = document.querySelector("#planConfirmado")
 const velocidadConfirmada = document.querySelector("#velocidadConfirmada")
 const importeAbono = document.querySelector("#importeAbono")
 const errores = document.querySelectorAll(".error")
+const monto = document.querySelector("#monto")
 
 btnConfirmar.addEventListener("click", () => {
 
@@ -73,35 +97,93 @@ btnConfirmar.addEventListener("click", () => {
         errores[1].innerHTML = "Ingresá tu dirección."
         hayError = true
     }
-    if (verificacion.value.trim() === "") {
-        errores[2].innerHTML = "Ingresá tu número de verificación."
-        hayError = true
-    }
+
     if (contrato.length === 0) {
-        errores[3].innerHTML = ("Debes seleccionar un plan antes de confirmar.")
+        errores[2].innerHTML = ("Debes seleccionar un plan antes de confirmar.")
         hayError = true
     }
     if (hayError) return
     if (!hayError) {
         muestraNombre.innerHTML = nombreAlta.value
         muestraDomicilio.innerHTML = direccion.value
-        muestraVerificación.innerHTML = verificacion.value
         const containerPanelControl = document.getElementById("container-panel-control1");
         const mostrarResultados = document.getElementById("mostrarResultados1");
         if (containerPanelControl) containerPanelControl.style.display = "none";
         if (mostrarResultados) mostrarResultados.style.display = "block";
     }
-
-})
-
-
+}
+)
 const politicas = document.querySelector("#politicas")
 const contratarServicio = document.querySelector("#contratarServicio")
+const divModal = document.querySelector("#divModal")
+const cerrarModal = document.querySelector("#cerrarModal")
+
 contratarServicio.addEventListener("click", () => {
-    if (politicas.checked) {
-        alert("Servicio contratado")
-    } else {
-        alert("Debes aceptar las politicas de uso")
+    divModal.innerHTML = "";
+    if (contrato.length === 0) {
+        divModal.style.display = "flex"
+        let divNew = document.createElement("div")
+        divNew.innerHTML = `  <div class="modalContenido">
+          <strong id="cerrarModal" class="cerraX">X</strong>
+          <h3 class="titleModal">ERROR!</h3>
+          <p class="textModal">
+            Debes al menos seleccionar un servicio
+          </p>
+        </div>`
+        divModal.appendChild(divNew);
+        divNew.addEventListener("click", () => {
+            divModal.style.display = "none"
+        })
+        return
+    }
+    if (politicas.checked)
+        if (monto.value === "") {
+            divModal.innerHTML = ""
+            divModal.style.display = "flex"
+            let divNew = document.createElement("div")
+            divNew.innerHTML = `  <div class="modalContenido modalContenido--contratado">
+        <strong id="cerrarModal" class="cerraX">X</strong>
+        <h3 class="titleModal">ERROR!</h3>
+        <p class="textModal">
+        Debes ingresar un monto de instalación
+        </p>
+        </div>`;
+            divModal.appendChild(divNew);
+            divNew.addEventListener("click", () => {
+                divModal.style.display = "none"
+            })
+            return
+        } else {
+            divModal.innerHTML = ""
+            divModal.style.display = "flex"
+            let divNew = document.createElement("div")
+            divNew.innerHTML = `  <div class="modalContenido modalContenido--contratado">
+        <strong id="cerrarModal" class="cerraX">X</strong>
+        <h3 class="titleModal">Servicio contratado ¡FELICIDADES!</h3>
+        <p>Debes abonar una instalación de $ <strong>${monto.value}</strong></p>
+        <p class="textModal">
+        Aqui próximamente se llamará a una API para que realice el pago
+        </p>
+        </div>`;
+            divModal.innerHTML = ""
+            divModal.appendChild(divNew);
+            divNew.addEventListener("click", () => {
+                divModal.style.display = "none"
+            })
+        } else {
+        divModal.style.display = "flex"
+        let divNew = document.createElement("div")
+        divNew.innerHTML = `  <div class= "modalContenido modalContenido--politicas">
+          <strong id="cerrarModal" class="cerraX">X</strong>
+          <h3 class="titleModal">ERROR!</h3>
+          <p class="textModal">
+            Debes aceptar las politicas de uso
+          </p>
+        </div>`;
+        divModal.appendChild(divNew);
+        divNew.addEventListener("click", () => {
+            divModal.style.display = "none"
+        })
     }
 })
 
@@ -122,17 +204,3 @@ contratarServicio.addEventListener("click", () => {
 
 
 
-
-
-
-
-
-if (btnConfirmar) {
-    btnConfirmar.addEventListener("click", () => {
-        const containerPanelControl = document.getElementById("container-panel-control1");
-        const mostrarResultados = document.getElementById("mostrarResultados1");
-
-        if (containerPanelControl) containerPanelControl.style.display = "none";
-        if (mostrarResultados) mostrarResultados.style.display = "block";
-    })
-} 
