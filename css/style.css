@@ -368,6 +368,9 @@ h1 {
   grid-area: img-panel-control;
   width: 100%;
   animation: girar 10s linear infinite;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+  opacity: 1;
+  visibility: visible;
 }
 
 @keyframes girar {
@@ -550,6 +553,12 @@ h1 {
 }
 
 .textModal {
+  font-weight: 700;
+}
+
+.seleccion {
+  color: green;
+  font-size: 16px;
   font-weight: 700;
 }
 
