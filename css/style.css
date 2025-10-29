@@ -50,8 +50,8 @@ header {
 }
 
 .logo img {
-  width: 15rem;
-  height: 4.25rem;
+  width: 12rem;
+  height: 3.75rem;
   transition: 0.5s;
 }
 
@@ -337,7 +337,6 @@ h1 {
   grid-template-areas: "instalacion resultados";
   grid-template-columns: 50% 50%;
   grid-auto-rows: auto;
-  gap: 1rem;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -366,11 +365,41 @@ h1 {
   margin: 0 auto;
   place-self: center;
   grid-area: img-panel-control;
-  width: 100%;
+  width: 75%;
   animation: girar 10s linear infinite;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
-  opacity: 1;
-  visibility: visible;
+  z-index: 10;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.fade-out {
+  animation: fadeOut 1s ease-in-out forwards;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.mostrarResultados {
+  display: none;
+  opacity: 0;
 }
 
 @keyframes girar {
@@ -383,6 +412,7 @@ h1 {
 }
 .mostrarResultados {
   display: none;
+  z-index: 20;
 }
 
 .divPrecios {
@@ -397,6 +427,7 @@ h1 {
 }
 
 .tituloDatos {
+  font-size: 1.5rem;
   text-align: center;
   margin-top: 0;
   margin-bottom: 2rem;
@@ -404,24 +435,41 @@ h1 {
 }
 
 .dato1 {
+  font-size: 1rem;
   position: absolute;
   left: 1%;
 }
 
 .datos2 {
   margin-right: -20rem;
-  width: 50%;
+  width: 40%;
+}
+
+#muestraPlanes p {
+  font-size: 0.85rem;
+}
+
+#muestraPlanes p strong {
+  margin: 0 0.5rem;
 }
 
 .si,
 .no {
   background-color: #158cba;
   border-radius: 1rem;
-  width: 10rem;
-  padding: 0.1rem;
+  width: 8rem;
+  padding: 0.5rem;
   color: #fff;
   border: none;
-  margin: 1rem;
+  margin: 0 1rem;
+}
+
+.si img {
+  width: 2rem;
+}
+
+.no img {
+  width: 2rem;
 }
 
 .confirm {
@@ -558,6 +606,7 @@ h1 {
 
 .seleccion {
   color: green;
+  margin: 0.5rem;
   font-size: 16px;
   font-weight: 700;
 }
@@ -656,8 +705,8 @@ h1 {
     width: 100%;
   }
   .logo img {
-    width: 30rem;
-    height: 5.25rem;
+    width: 12rem;
+    height: 4.25rem;
   }
   .main-Conteiner {
     grid-template-columns: 1fr 1fr;
@@ -702,7 +751,7 @@ h1 {
     width: 100%;
   }
   .logo img {
-    width: 40rem;
+    width: 15rem;
     height: 4.75rem;
   }
   .main-Conteiner {
@@ -834,9 +883,12 @@ h1 {
     padding: 1px;
   }
   .logo img {
-    width: 35rem;
-    height: 4.75rem;
-    margin-top: 6rem !important;
+    width: 10rem;
+    height: 1.75rem;
+    margin-top: 1rem !important;
+  }
+  .tituloPrimario {
+    margin-top: 8rem;
   }
   .main-Conteiner {
     grid-template-columns: 1fr;

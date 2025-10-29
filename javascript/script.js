@@ -126,8 +126,18 @@ btnConfirmar.addEventListener("click", () => {
         const containerPanelControl = document.getElementById("container-panel-control1");
         const logo = document.querySelector(".logo-panel-control");
         const mostrarResultados = document.getElementById("mostrarResultados1");
-        if (containerPanelControl) containerPanelControl.style.display = "none";
-        if (mostrarResultados) mostrarResultados.style.display = "block";
+
+        logo.classList.add("fade-out");
+        setTimeout(() => {
+            if (containerPanelControl) logo.style.display = "none";
+
+        }, 500);
+
+        setTimeout(() => {
+            if (mostrarResultados) mostrarResultados.style.display = "block";
+            mostrarResultados.classList.add("fade-in");
+        }, 500);
+
     }
 }
 

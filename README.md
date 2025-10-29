@@ -1,28 +1,26 @@
 <h1 align="center">Hi 👋, I'm Cristian H González</h1>
 <h3 align="center">Aprendiendo frontend en Coder</h3>
 <p align="left">
-
 - La lógica esta en el pagina solicitar servicio.
 - Las validaciones que tiene son:
 
-  - No puede elegir más de un servicio.
-  - Si todavía no selecciono un servicio y presiona cancelar sale un aviso que debe al menos seleccionar un servicio.
-  - Si hace click en confirmar y falta rellenar información en nombre apellido, dirección o no elegio un plan, se le da aviso al usuario.
-  - Si no coloco importe de instalación se le informa al usuario.
-  - Para contratar el servicio debe aceptar las politicas de uso.
+- No puede elegir más de un servicio.
+- Si todavía no selecciono un servicio y presiona cancelar sale un aviso que debe al menos seleccionar un servicio.
+- Si hace click en confirmar y falta rellenar información en nombre apellido, dirección o no elegio un plan, se le da aviso al usuario.
+- Si no coloco importe de instalación se le informa al usuario.
+- Para contratar el servicio debe aceptar las politicas de uso.
 
 - Lo que se viene:
 
   - Llamar a una API para que realice el pago.
   - Hacer operativo el formulario de contacto.
-  - Hacer una animacion en la transición cuando muestra la compra que realizo.
+  - <del>Hacer una animacion en la transición cuando muestra la compra que realizo.</del> (realizado con la clase del martes 28/10)
   - Hacer responsive la pagina solicitar servicio.
 
 - Cosas que no pude solucionar:
   - Me queda pendiente resolver el tema de las ventanas modal, quise hace una funcion para no repetir tanto código cuando llamo la ventana modal pero no logre hacerlo.
   - Cuando activo las animaciones de AOS en el html las ventanas modal funcionan mal.
-
-</p>
+  </p>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
