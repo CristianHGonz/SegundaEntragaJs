@@ -17,8 +17,13 @@ main {
   margin-bottom: auto !important;
 }
 
-nav,
+header,
 footer {
   background-color: $bg-nav-fotter;
 }
-
+.container,
+.nav-bar,
+footer {
+  width: 87.5rem;
+  margin: 0 auto;
+}

@@ -21,7 +21,7 @@
       margin: 1rem 1rem 0.5rem 1rem;
     }
     .aclaracion {
-      font-size: 10px;
+      font-size: 11px;
     }
   }
 
@@ -30,7 +30,9 @@
     border-left: 1px solid #aaa9;
   }
 }
-
+.resultadoalternativo {
+  display: none;
+}
 .logo-panel-control {
   display: flex;
   margin: 0 auto;
@@ -174,7 +176,8 @@
   font-weight: 700;
   margin: 1rem;
 }
-#contratarServicio {
+#contratarServicio,
+#volver {
   margin: 5rem;
   background-color: $bg-nav-fotter;
   border-radius: 1rem;
@@ -187,7 +190,8 @@
 .si:hover,
 .no:hover,
 .confirm:hover,
-#contratarServicio:hover {
+#contratarServicio:hover,
+#volver:hover {
   background-color: #136788;
   color: #f4f9f9;
 }

@@ -41,29 +41,44 @@
   </head>
   <body>
     <header>
+      <button id="abrir">
+        <img
+          class="hambu"
+          src="../asset/108562274-hamburger-menu-web-icon-on-transparent-background.jpg"
+          alt=""
+        />
+      </button>
+      <nav class="nav-bar">
+        <div class="nav-bar01" data-aos="fade-down" data-aos-duration="1500">
+          <ul class="b__b">
+            <li class="b__b"><a class="a__a" href="../index.html">HOME</a></li>
+            <li class="b__b">
+              <a class="a__a" href="servicios.html">SERVICIOS</a>
+            </li>
+            <li class="b__b">
+              <a class="a__a" href="somos.html">QUIENES SOMOS</a>
+            </li>
+            <li class="b__b">
+              <a class="a__a" href="panel-control.html">SOLICITAR SERVICIO</a>
+            </li>
+            <li class="b__b">
+              <a class="a__a" href="contacto.html">CONTACTO</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="container" data-aos="zoom-in-up" data-aos-duration="1500">
       <div class="logo">
         <img
           src="../asset/images/LogoEmpresa/Logotipo-Villa-Giardino-Horiz.png"
           alt="logo empresa"
         />
       </div>
-      <nav class="nav-bar">
-        <div class="nav-bar01" data-aos="fade-down" data-aos-duration="1500">
-          <ul>
-            <li><a href="../index.html">HOME</a></li>
-            <li><a href="servicios.html">SERVICIOS</a></li>
-            <li><a href="somos.html">QUIENES SOMOS</a></li>
-            <li><a href="panel-control.html">SOLICITAR SERVICIO</a></li>
-            <li><a href="contacto.html">CONTACTO</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <main class="container" data-aos="zoom-in-up" data-aos-duration="1500">
       <div class="contacto-primary">
         <div class="contacto-form">
           <div class="form-panel-control">
-            <form>
+            <form id="form">
               <div class="mb-1">
                 <label for="exampleInputText1" class="form-label"
                   >Nombre y Apellido</label
@@ -71,8 +86,10 @@
                 <input
                   type="text"
                   class="form-control"
-                  id="exampleInputText1"
                   aria-describedby="text"
+                  placeholder="Esteban Quito"
+                  required
+                  name="name"
                 />
               </div>
               <div class="mb-1">
@@ -82,36 +99,73 @@
                 <input
                   type="text"
                   class="form-control"
-                  id="exampleInputPassword1"
+                  placeholder="Bv Las Flores 36"
+                  name="adress"
                 />
               </div>
               <div class="mb-0">
                 <label for="exampleInputText1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="InputPassword1" />
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="email@email.com"
+                  name="email"
+                />
+              </div>
+              <div class="mb-0">
+                <label for="exampleInputText1" class="form-label"
+                  >N° contacto</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="3548404040"
+                  name="phone"
+                />
               </div>
               <div class="form-floating mb-3">
+                <label class="form-label"></label>
+                <p class="mensaje">Escriba aqui su msj</p>
                 <textarea
+                  placeholder="Escriba Aquí"
                   class="form-control mt-5"
-                  placeholder="Leave a comment here"
-                  id="floatingTextarea2Disabled"
                   style="height: 100px"
+                  name="msj"
                 ></textarea>
-                <label for="floatingTextarea2Disabled">Escriba aquí</label>
               </div>
               <div class="btn-enviar">
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <input
+                  type="submit"
+                  class="btn btn-primary"
+                  id="button"
+                  value="Enviar Mensaje"
+                />
               </div>
             </form>
+            <script
+              type="text/javascript"
+              src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+            ></script>
+
+            <script type="text/javascript">
+              emailjs.init("wqEdh5RG5cOzQ_tft");
+            </script>
           </div>
         </div>
         <div class="contact-ubicacion">
           <h3>Ubicación</h3>
-          <p class="contacto-p">Av Siempre Viva 853 - Springfield</p>
-          <img
-            class="contact-map"
-            src="../asset/images/redes/mapa.jpg"
-            alt="representacion de mapa"
-          />
+          <!-- <p class="contacto-p">Av Siempre Viva 853 - Springfield</p> -->
+          <div class="contact-map" id="map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1022.5420680857991!2d-64.49995843035002!3d-31.050851049464264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d849e48988b7d%3A0xf2b7b5efa5c05c8b!2sCooperativa%20Villa%20Giardino!5e1!3m2!1ses-419!2sar!4v1761947307970!5m2!1ses-419!2sar"
+              width="400"
+              height="400"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
         </div>
         <div class="contacto-siguenos">
           <h3>Síguenos en nuestras redes</h3>
@@ -190,5 +244,6 @@
     <script>
       AOS.init();
     </script>
+    <script src="/javascript/contacto.js"></script>
   </body>
 </html>

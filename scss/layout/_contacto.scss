@@ -1,6 +1,9 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixin-extend" as *;
 
+iframe {
+  border-radius: 1rem;
+}
 .contacto-primary {
   display: grid;
   grid-template-areas:
@@ -23,11 +26,7 @@
 .contacto-p {
   margin: 1rem;
 }
-.contact-map {
-  width: 10rem;
-  margin: 1rem;
-  border-radius: 1rem;
-}
+
 .logo-facebook,
 .logo-ig,
 .logo-x {
@@ -44,4 +43,8 @@
 .btn-enviar .btn-primary:hover {
   background-color: #136788;
   color: #f4f9f9;
+}
+#map {
+  height: 100%;
+  width: 100%;
 }

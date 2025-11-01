@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "servicio": "Fibra Optica",
+    "plan": "50mb",
+    "precio": 15000
+  },
+  {
+    "id": 2,
+    "servicio": "Fibra Optica",
+    "plan": "100mb",
+    "precio": 25000
+  },
+  { "id": 3, "servicio": "Wireless", "plan": "10mb", "precio": 10000 },
+
+  { "id": 4, "servicio": "Wireless", "plan": "20mb", "precio": 20000 }
+]
