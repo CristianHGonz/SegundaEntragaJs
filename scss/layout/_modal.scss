@@ -1,0 +1,56 @@
+.contenidoModal {
+  display: flex;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  margin: auto auto;
+  position: relative;
+  margin: 0 1rem;
+
+  .modalTop {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 1.9rem;
+    background: radial-gradient(
+      circle,
+      rgba(76, 186, 230, 1) 0%,
+      rgba(148, 187, 233, 1) 100%
+    );
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    overflow: hidden;
+    .cerrar {
+      margin-bottom: -0.3rem;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 700;
+      width: 2rem;
+      height: 2rem;
+      cursor: pointer;
+    }
+  }
+  .modalInfo {
+    background: linear-gradient(
+      353deg,
+      rgba(244, 244, 244, 1) 100%,
+      rgba(0, 0, 0, 1) 0%
+    );
+    width: 100%;
+    height: auto;
+    .blabla {
+      display: flex;
+      margin: 4rem 1rem;
+      place-self: center;
+      text-align: center;
+      flex-direction: column;
+      strong {
+        color: red;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

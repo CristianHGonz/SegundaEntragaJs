@@ -674,3 +674,17 @@
   text-align: center;
   z-index: 1000;
 }
+
+@media (max-width: 450px) {
+  .logo .logo-img {
+    width: 13rem !important;
+    margin-left: -4rem !important;
+  }
+}
+.si,
+.no {
+  width: 5.5rem;
+}
+.datos2 {
+  margin-left: -40px;
+}
