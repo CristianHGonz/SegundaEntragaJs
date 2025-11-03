@@ -81,16 +81,27 @@
 
       <div class="datosFormulario">
         <div class="instalacion">
-          <h3 class="tituloDatos tituloDatos1">Ingresa tus datos:</h3>
-          <label class="dato1" for="nombreAlta"
-            >Ingresa tu Nombre y Apellido:</label
-          >
+          <h3 class="tituloDatos tituloDatos1">
+            Para contratar un servicio, completa el siguiente formulario:
+          </h3>
+          <label class="dato1" for="nombreAlta">Nombre y Apellido:</label>
           <input class="datos2" type="text" name="nombreAlta" id="nombreAlta" />
           <p class="error"></p>
-          <label class="dato1" for="direccion">Ingresa tu Dirección:</label>
+          <label class="dato1" for="direccion">Dirección:</label>
           <input class="datos2" type="text" name="direccion" id="direccion" />
           <p class="error"></p>
-
+          <label class="dato1" for="dni">DNI:</label>
+          <input class="datos2" type="text" name="dni" id="dni" />
+          <p class="error"></p>
+          <label class="dato1" for="dni">Email:</label>
+          <input class="datos2" type="text" name="dni" id="email" />
+          <p class="error"></p>
+          <label class="dato1" for="contacto">N° Contacto:</label>
+          <input class="datos2" type="text" name="contacto" id="contacto" />
+          <p class="error"></p>
+          <button id="siguiente">Siguiente</button>
+        </div>
+        <div class="planesDisponibles">
           <h4 class="tituloDatos">Seleccione el plan que desea contratar</h4>
           <div id="muestraPlanes"></div>
           <button class="confirm" id="btnConfirmar">Confirmar</button>
@@ -197,6 +208,10 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      emailjs.init("wqEdh5RG5cOzQ_tft");
     </script>
     <script src="../javascript/script.js"></script>
   </body>

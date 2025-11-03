@@ -25,6 +25,7 @@ nav01.addEventListener("mouseleave", () => {
 
 })
 
+
 let contrato = []
 // ]
 const planeador = async () => {
@@ -61,8 +62,6 @@ const planeador = async () => {
                 let planComprado = planesDisponibles.find(
                     plan => plan.id == e.currentTarget.dataset.id
                 )
-
-
                 if (!planComprado) {
                     divModal.innerHTML = ""
                     divModal.style.display = "flex"
@@ -117,7 +116,6 @@ const planeador = async () => {
                     planConfirmado.innerHTML = planComprado.servicio
                     velocidadConfirmada.innerHTML = planComprado.plan
                     importeAbono.innerHTML = planComprado.precio
-                    sessionStorage.setItem("plancontratado", JSON.stringify(planComprado))
                 }
             })
         })
@@ -152,7 +150,6 @@ const planeador = async () => {
                     velocidadConfirmada.innerHTML = ""
                     importeAbono.innerHTML = ""
                     seleccion.forEach(el => el.innerHTML = "")
-                    sessionStorage.removeItem("plancontratado")
                 }
             })
         })
@@ -178,7 +175,9 @@ const monto = document.querySelector("#monto")
 const instalacion = document.querySelector(".instalacion")
 const containerPanelControl = document.getElementById("container-panel-control1")
 const mostrarResultados = document.getElementById("mostrarResultados1")
-
+const dni = document.querySelector("#dni")
+const email = document.querySelector("#email")
+const contacto = document.querySelector("#contacto")
 
 
 btnConfirmar.addEventListener("click", () => {
@@ -186,18 +185,11 @@ btnConfirmar.addEventListener("click", () => {
     errores.forEach((err) => (err.innerHTML = ""))
     let hayError = false
 
-    if (nombreAlta.value.trim() === "") {
-        errores[0].innerHTML = "Ingresá tu nombre y apellido"
-        hayError = true
-    }
-    if (direccion.value.trim() === "") {
-        errores[1].innerHTML = "Ingresá tu dirección."
-        hayError = true
-    }
+
 
     if (contrato.length === 0) {
-        if (errores[2]) {
-            errores[2].innerHTML = "Debes seleccionar un plan antes de confirmar."
+        if (errores) {
+            errores[0].innerHTML = "Debes seleccionar un plan"
         } else {
 
             divModal.innerHTML = ""
@@ -228,30 +220,55 @@ btnConfirmar.addEventListener("click", () => {
         muestraNombre.innerHTML = nombreAlta.value
         muestraDomicilio.innerHTML = direccion.value
         instalacion.classList.add("fade-out")
-        setTimeout(() => {
-            if (containerPanelControl) instalacion.style.display = "none"
-        }, 500)
 
+        setTimeout(() => {
+            if (planesDisponibles) planesDisponibles.style.display = "none"
+        }, 500)
 
         setTimeout(() => {
             if (mostrarResultados) mostrarResultados.style.display = "block"
             mostrarResultados.classList.add("fade-in")
         }, 500)
-
-
     }
 }
-
 )
+const planesDisponibles = document.querySelector(".planesDisponibles")
+
+const siguiente = document.querySelector("#siguiente").addEventListener("click", () => {
+    errores.forEach((err) => (err.innerHTML = ""))
+    let hayError = false
+
+    if (nombreAlta.value.trim().length < 8 || !nombreAlta.value.includes(" ")) {
+        errores[0].innerHTML = "Necesitamos tu nombre completo (nombre y apellido)."
+        hayError = true
+    }
+    if (direccion.value.trim().length < 6) {
+        errores[1].innerHTML = "Necesitamos una dirección válida."
+        hayError = true
+    }
+    if (dni.value.trim() === "" || !/^\d{7,8}$/.test(dni.value.trim())) {
+        errores[2].innerHTML = "Necesitamos que ingreses tu DNI sin puntos."
+        hayError = true
+    }
+    if (email.value.trim() === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        errores[3].innerHTML = "Necesitamos que ingreses un mail válido."
+        hayError = true
+    }
+    if (contacto.value.trim().length < 8) {
+        errores[4].innerHTML = "Necesitamos que ingreses un N° de celular."
+        hayError = true
+    }
+
+    if (hayError) return
+
+    if (instalacion) instalacion.style.display = "none"
+    if (planesDisponibles) planesDisponibles.style.display = "block"
+})
 const politicas = document.querySelector("#politicas")
 const contratarServicio = document.querySelector("#contratarServicio")
 const divModal = document.querySelector("#divModal")
 const cerrarModal = document.querySelector("#cerrarModal")
 const volver = document.querySelector("#volver")
-
-
-
-
 
 contratarServicio.addEventListener("click", () => {
     divModal.innerHTML = ""
@@ -296,39 +313,8 @@ contratarServicio.addEventListener("click", () => {
         })
         return
     }
-    if (politicas.checked) {
-        let guardado = JSON.parse(sessionStorage.getItem("plancontratado"))
-        divModal.innerHTML = ""
-        divModal.style.display = "flex"
-        let divNew = document.createElement("div")
-        divNew.innerHTML = `
-     <div class="contenidoModal">
-        <div class="modalTop">
-          <p class="cerrar">X</p>
-        </div>
-        <div class="modalInfo">
-          <p class="blabla">
-            <strong> FELICITACIONES: </strong>
-		Contrataste un servicio de 
-      ${guardado.servicio} 
-      ${guardado.plan} 
-      </p>
-        <p class="blabla">Debes abonar una instalación de $ ${monto.value}</p>
-        <p class="blabla">
-        Aqui próximamente se llamará a una API para que realice el pago
-                    
+    if (!politicas.checked) {
 
-
-          </p>
-        </div>`
-        divModal.innerHTML = ""
-        divModal.appendChild(divNew)
-        divNew.addEventListener("click", () => {
-            divModal.style.display = "none"
-        })
-    }
-
-    else {
         divModal.style.display = "flex"
         let divNew = document.createElement("div")
         divNew.innerHTML = `
@@ -346,7 +332,89 @@ contratarServicio.addEventListener("click", () => {
         divNew.addEventListener("click", () => {
             divModal.style.display = "none"
         })
+        return
     }
+
+    const nombreFinal = nombreAlta.value
+    const direccionFinal = direccion.value
+    const dniFinal = dni.value
+    const emailFinal = email.value
+    const contactoFinal = contacto.value
+
+
+
+
+    class final {
+        constructor(nombreFinal, direccionFinal, dniFinal, emailFinal, contactoFinal, contrato) {
+            this.nombreFinal = nombreFinal;
+            this.direccionFinal = direccionFinal;
+            this.dniFinal = dniFinal;
+            this.emailFinal = emailFinal;
+            this.contactoFinal = contactoFinal;
+            this.contrato = contrato;
+        }
+    }
+    let datosContrato = new final(nombreFinal, direccionFinal, dniFinal, emailFinal, contactoFinal, contrato)
+    localStorage.setItem("datosContrato", JSON.stringify(datosContrato))
+    const datos = JSON.parse(localStorage.getItem("datosContrato"));
+    const plan = datos.contrato[0];
+    const SERVICE_ID = "service_1nlz5fr";
+    const TEMPLATE_ID = "template_aj4n5tq";
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+        nombre: datos.nombreFinal,
+        direccion: datos.direccionFinal,
+        dni: datos.dniFinal,
+        email: datos.emailFinal,
+        contacto: datos.contactoFinal,
+        servicio: plan.servicio,
+        plan: plan.plan,
+        precio: plan.precio
+    })
+        .then(() => {
+            divModal.innerHTML = ""
+            divModal.style.display = "flex"
+            let divNew = document.createElement("div")
+            divNew.innerHTML = `
+     <div class="contenidoModal">
+        <div class="modalTop">
+          <p class="cerrar">X</p>
+        </div>
+        <div class="modalInfo">
+        <p class="blabla"><strong> ATENCION: </strong></p><p class="blabla">
+        Estimado/a ${nombreAlta.value},
+        Muchas gracias por contratar nuestro servicio. </br>
+        Apreciamos tu confianza en nosotros y esperamos cumplir con todas tus expectativas.</br>
+        Ante cualquier consulta o necesidad, no dudes en comunicarte con nuestro equipo.</br>
+        ¡Gracias por elegirnos!</p>
+        </div>`
+            divModal.innerHTML = ""
+            divModal.appendChild(divNew)
+            divNew.addEventListener("click", () => {
+                divModal.style.display = "none"
+            })
+        })
+        .catch((error) => {
+            divModal.innerHTML = ""
+            divModal.style.display = "flex"
+            let divNew = document.createElement("div")
+            divNew.innerHTML = `
+     <div class="contenidoModal">
+        <div class="modalTop">
+          <p class="cerrar">X</p>
+        </div>
+        <div class="modalInfo">
+        <p class="blabla"><strong> ATENCION: </strong></p><p class="blabla">
+        SISTEMA CAIDO ${error}</br>
+        Por favor intento nuevamente en unos minutos
+        
+        </div>`
+            divModal.innerHTML = ""
+            divModal.appendChild(divNew)
+            divNew.addEventListener("click", () => {
+                divModal.style.display = "none"
+            })
+        });
+
 })
 
 volver.addEventListener("click", () => {
@@ -364,7 +432,6 @@ volver.addEventListener("click", () => {
 
 }
 )
-
 
 
 
