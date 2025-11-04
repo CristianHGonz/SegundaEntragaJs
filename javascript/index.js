@@ -35,8 +35,7 @@ setTimeout(() => {
         <div class="modalInfo">
           <p class="blabla">
             <strong> Aviso IMPORTANTE: </strong>
-            La factura ya fue enviada por correo electrónico y vence el 15 de Noviembre.</br>
-            Recuerde pagar a termino, evite inconvenientes.
+            AQUI IRAN LOS AVISOS DE PORTADA.
           </p>
         </div>`
   divModal.appendChild(divNew)

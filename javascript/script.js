@@ -27,7 +27,7 @@ nav01.addEventListener("mouseleave", () => {
 
 
 let contrato = []
-// ]
+
 const planeador = async () => {
     const muestraPlanes = document.querySelector("#muestraPlanes")
     try {
@@ -185,8 +185,6 @@ btnConfirmar.addEventListener("click", () => {
     errores.forEach((err) => (err.innerHTML = ""))
     let hayError = false
 
-
-
     if (contrato.length === 0) {
         if (errores) {
             errores[0].innerHTML = "Debes seleccionar un plan"
@@ -219,7 +217,8 @@ btnConfirmar.addEventListener("click", () => {
     if (!hayError) {
         muestraNombre.innerHTML = nombreAlta.value
         muestraDomicilio.innerHTML = direccion.value
-        instalacion.classList.add("fade-out")
+        planesDisponibles.classList.remove("fade-in")
+        planesDisponibles.classList.add("fade-out")
 
         setTimeout(() => {
             if (planesDisponibles) planesDisponibles.style.display = "none"
@@ -260,10 +259,18 @@ const siguiente = document.querySelector("#siguiente").addEventListener("click",
     }
 
     if (hayError) return
-
+      instalacion.classList.remove("fade-in")
+    instalacion.classList.add("fade-out")
+    setTimeout(() => {
     if (instalacion) instalacion.style.display = "none"
-    if (planesDisponibles) planesDisponibles.style.display = "block"
-})
+            }, 500)
+            setTimeout(() => {
+                if (planesDisponibles) planesDisponibles.style.display = "block" 
+                planesDisponibles.classList.add("fade-in")
+        }, 500)
+    })
+
+
 const politicas = document.querySelector("#politicas")
 const contratarServicio = document.querySelector("#contratarServicio")
 const divModal = document.querySelector("#divModal")
