@@ -6,7 +6,6 @@ const container = document.querySelector(".container")
 const logo = document.querySelector(".logo")
 const resultados = document.querySelector(".tituloDatos1")
 
-
 abrir.addEventListener("mouseover", () => {
     nav01.classList.add("nav-bar01__visible")
     container.classList.add("container--margin")
@@ -26,6 +25,7 @@ nav01.addEventListener("mouseleave", () => {
 })
 
 
+
 let contrato = []
 
 const planeador = async () => {
@@ -42,7 +42,7 @@ const planeador = async () => {
         planesDisponibles.forEach((plan) => {
             let div = document.createElement("div")
             div.className = "divPrecios"
-            div.innerHTML = ` <p class="error"></p> 
+            div.innerHTML = ` <p class="errorPlanes"></p> 
         <p> Opción N° ${plan.id} Servicio:<strong>${plan.servicio}</strong>Plan: ${plan.plan}</p>
        <p><strong>Precio: $${plan.precio}</strong></p>
        <button data-id=${plan.id} class="si"> <img id="si" src="../asset/images/contratar/si1.png" alt="contratar">Contratar</button>
@@ -121,7 +121,7 @@ const planeador = async () => {
         })
 
 
-        no.forEach((btn) => {
+        no.forEach((btn, index) => {
             btn.addEventListener("click", () => {
                 if (contrato.length === 0) {
                     divModal.innerHTML = ""
@@ -138,20 +138,25 @@ const planeador = async () => {
                         </p>
                     </div>
                 </div>`
+                
                     divModal.appendChild(divNew)
                     divNew.addEventListener("click", () => {
                         divModal.style.display = "none"
                     })
                     return
-                } else {
+                } 
+                
+                else {
 
                     contrato.pop()
                     planConfirmado.innerHTML = ""
                     velocidadConfirmada.innerHTML = ""
                     importeAbono.innerHTML = ""
-                    seleccion.forEach(el => el.innerHTML = "")
+                    seleccion[index].innerHTML = `<strong class="eliminado"> PLAN ELIMINADO </strong>`
+
                 }
             })
+           
         })
     } catch (err) {
 
@@ -178,18 +183,21 @@ const mostrarResultados = document.getElementById("mostrarResultados1")
 const dni = document.querySelector("#dni")
 const email = document.querySelector("#email")
 const contacto = document.querySelector("#contacto")
-
+const errorPlanes = document.querySelectorAll(".errorPlanes")
 
 btnConfirmar.addEventListener("click", () => {
 
-    errores.forEach((err) => (err.innerHTML = ""))
+    errorPlanes.forEach((err) => (err.innerHTML = ""))
     let hayError = false
-
+    
     if (contrato.length === 0) {
-        if (errores) {
-            errores[0].innerHTML = "Debes seleccionar un plan"
+        
+         if (errorPlanes && errorPlanes.length > 0) {
+            
+            errorPlanes.forEach(err => {
+                err.innerHTML = "Debes seleccionar un plan"
+            })
         } else {
-
             divModal.innerHTML = ""
             divModal.style.display = "flex"
             let divNew = document.createElement("div")
@@ -246,7 +254,7 @@ const siguiente = document.querySelector("#siguiente").addEventListener("click",
         hayError = true
     }
     if (dni.value.trim() === "" || !/^\d{7,8}$/.test(dni.value.trim())) {
-        errores[2].innerHTML = "Necesitamos que ingreses tu DNI sin puntos."
+        errores[2].innerHTML = "Formato de DNI no valido."
         hayError = true
     }
     if (email.value.trim() === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
@@ -378,20 +386,29 @@ contratarServicio.addEventListener("click", () => {
         precio: plan.precio
     })
         .then(() => {
+            setTimeout(() => {
+  window.location.replace("../index.html");
+}, 5000);
             divModal.innerHTML = ""
             divModal.style.display = "flex"
             let divNew = document.createElement("div")
             divNew.innerHTML = `
      <div class="contenidoModal">
         <div class="modalTop">
-          <p class="cerrar">X</p>
         </div>
         <div class="modalInfo">
         <p class="blabla"><strong> ATENCION: </strong></p><p class="blabla">
-        Estimado/a ${nombreAlta.value},
+        Estimado/a:  ${nombreAlta.value},
+
         Muchas gracias por contratar nuestro servicio. </br>
+
         Apreciamos tu confianza en nosotros y esperamos cumplir con todas tus expectativas.</br>
+        
+        En unos minutos recibirá un mail con los detalles de la contratación. </br>
+        
         Ante cualquier consulta o necesidad, no dudes en comunicarte con nuestro equipo.</br>
+
+        
         ¡Gracias por elegirnos!</p>
         </div>`
             divModal.innerHTML = ""

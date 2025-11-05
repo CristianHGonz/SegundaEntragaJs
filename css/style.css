@@ -407,6 +407,7 @@ h1 {
 .mostrarResultados {
   display: none;
   opacity: 0;
+  z-index: 20;
 }
 
 @keyframes girar {
@@ -417,16 +418,17 @@ h1 {
     transform: rotateY(360deg);
   }
 }
-.mostrarResultados {
-  display: none;
-  z-index: 20;
-}
-
 .divPrecios {
   place-self: center;
   width: 75%;
   border-bottom: 1px solid rgba(64, 64, 64, 0.2509803922);
   margin-bottom: 1.5rem;
+  flex: 1 1 45%;
+  min-width: 250px;
+  text-align: center;
+  background: #c8dde6;
+  padding: 1rem;
+  border-radius: 1rem;
 }
 
 .instalacion {
@@ -442,7 +444,7 @@ h1 {
   text-align: center;
   margin-top: 0;
   margin-bottom: 2rem;
-  letter-spacing: 4px;
+  letter-spacing: 1px;
 }
 
 .dato1 {
@@ -454,6 +456,14 @@ h1 {
 .datos2 {
   margin-right: -20rem;
   width: 40%;
+}
+
+#muestraPlanes {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-right: 1rem;
 }
 
 #muestraPlanes p {
@@ -568,6 +578,10 @@ h1 {
   margin: 0.5rem;
   font-size: 16px;
   font-weight: 700;
+}
+
+.eliminado {
+  color: red;
 }
 
 iframe {
