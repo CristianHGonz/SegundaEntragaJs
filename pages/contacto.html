@@ -41,6 +41,13 @@
   </head>
   <body>
     <header>
+      <div class="logo">
+        <img
+          class="logo-img"
+          src="../asset/images/LogoEmpresa/Logotipo-Villa-Giardino-Horiz.png"
+          alt="logo empresa"
+        />
+      </div>
       <button id="abrir">
         <img
           class="hambu"
@@ -69,13 +76,7 @@
       </nav>
     </header>
     <main class="container" data-aos="zoom-in-up" data-aos-duration="1500">
-      <div class="logo">
-        <img
-          class="logo-img"
-          src="../asset/images/LogoEmpresa/Logotipo-Villa-Giardino-Horiz.png"
-          alt="logo empresa"
-        />
-      </div>
+      
       <div class="contacto-primary">
         <div class="contacto-form">
           <div class="form-panel-control">
@@ -88,10 +89,11 @@
                   type="text"
                   class="form-control"
                   aria-describedby="text"
-                  required
-                  name="name"
+                                    name="name"
+                  id="name"
                 />
               </div>
+              <p class="error"></p>
               <div class="mb-1">
                 <label for="exampleInputText1" class="form-label"
                   >Dirección</label
@@ -100,16 +102,20 @@
                   type="text"
                   class="form-control"
                   name="adress"
+                  id="adress"
                 />
               </div>
+              <p class="error"></p>
               <div class="mb-0">
                 <label for="exampleInputText1" class="form-label">Email</label>
                 <input
                   type="email"
                   class="form-control"
                   name="email"
+                  id="email"
                 />
               </div>
+              <p class="error"></p>
               <div class="mb-0">
                 <label for="exampleInputText1" class="form-label"
                   >N° contacto</label
@@ -118,17 +124,27 @@
                   type="number"
                   class="form-control"
                   name="phone"
-                  required
+                  id="phone"
+                  
                 />
+                <p class="error"></p>
               </div>
+              <label for="motivo"  class="motivo">Motivo de su consulta: </label><br>
+              <select name="motivo" id="motivo" required>
+                <option></option>
+                <option value="verificacion">Verif de Servicio</option>
+                <option value="consulta">Cobertura</option>
+                <option value="consulta">Otras Consultas</option>
+                </select>
+
+                </option>
               <div class="form-floating mb-3">
-                <label class="form-label"></label>
-                <p class="mensaje">Escriba aqui su msj</p>
+                <p class="mensaje">Escriba aqui su mensaje</p>
                 <textarea
-                  placeholder="Escriba Aquí"
                   class="form-control mt-5"
                   style="height: 100px"
                   name="msj"
+                  required
                 ></textarea>
               </div>
               <div class="btn-enviar">
@@ -147,7 +163,7 @@
         </div>
         <div class="contact-ubicacion">
           <h3>Ubicación</h3>
-          <!-- <p class="contacto-p">Av Siempre Viva 853 - Springfield</p> -->
+          
           <div class="contact-map" id="map">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1022.5420680857991!2d-64.49995843035002!3d-31.050851049464264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d849e48988b7d%3A0xf2b7b5efa5c05c8b!2sCooperativa%20Villa%20Giardino!5e1!3m2!1ses-419!2sar!4v1761947307970!5m2!1ses-419!2sar"

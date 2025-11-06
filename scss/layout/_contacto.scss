@@ -15,6 +15,7 @@ iframe {
 .contacto-ubicacion {
   grid-area: contacto-ubicacion;
   grid-template-columns: 1/2;
+  
 }
 .contacto-form {
   grid-area: contacto-form;
@@ -47,4 +48,16 @@ iframe {
 #map {
   height: 100%;
   width: 100%;
+}
+.form-label{
+  margin: 0.5rem 0;
+}
+.motivo{
+  margin:1rem
+}
+
+.mensaje{
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: -1rem;
 }
