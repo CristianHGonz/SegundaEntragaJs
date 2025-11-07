@@ -5,8 +5,6 @@ const container = document.querySelector(".container")
 const logo = document.querySelector(".logo")
 const titleQuienes = document.querySelector(".title-quienes")
 
-
-
 abrir.addEventListener("mouseover", ()=>{
     nav01.classList.add("nav-bar01__visible")
     container.classList.add("container--margin")
@@ -14,9 +12,6 @@ abrir.addEventListener("mouseover", ()=>{
     logo.classList.add("logo--arriba.animar")
     titleQuienes.classList.add("title-quienes--1")
     titleQuienes.classList.add("title-quienes1.animar")
-    
-    
-    
 })
 
 nav01.addEventListener("mouseleave", ()=>{

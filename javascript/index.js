@@ -1,11 +1,11 @@
-const abrir0 = document.querySelector("#abrir");
+const abrir = document.querySelector("#abrir");
 const nav = document.querySelector(".nav-bar")
 const nav01 = document.querySelector(".nav-bar01");
 const container = document.querySelector(".container")
 const logo = document.querySelector(".logo")
 const titulo = document.querySelector(".titulo--principal")
 
-abrir0.addEventListener("mouseover", () => {
+abrir.addEventListener("mouseover", () => {
   nav01.classList.add("nav-bar01__visible")
   container.classList.add("container--margin")
   logo.classList.add("logo--arriba")
