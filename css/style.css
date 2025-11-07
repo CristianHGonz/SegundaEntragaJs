@@ -1336,7 +1336,6 @@ iframe {
 @media (max-width: 450px) {
   .logo .logo-img {
     width: 13rem !important;
-    margin-left: -4rem !important;
   }
 }
 .si,
