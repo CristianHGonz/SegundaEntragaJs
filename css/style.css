@@ -29,7 +29,7 @@
 body {
   display: flex;
   flex-direction: column;
-  height: 100dvh; /*config para centrar mandar el footer abajo*/
+  height: 100dvh;
 }
 
 main {
@@ -42,10 +42,28 @@ footer {
 }
 
 .container,
-.nav-bar,
 footer {
   width: 87.5rem;
   margin: 0 auto;
+}
+
+header {
+  display: flex;
+  background-color: rgb(233, 229, 229);
+  flex-direction: column;
+  position: fixed;
+  z-index: 30;
+  width: 100%;
+}
+
+.logo {
+  border-bottom: 2px solid rgb(233, 229, 229);
+  width: 100%;
+}
+
+.logo-img {
+  width: 15rem;
+  margin: 0.5em 0 0.5em 1em;
 }
 
 .nav-bar01 {
@@ -55,9 +73,8 @@ footer {
   justify-content: center;
   align-items: center;
   height: 3rem;
-  position: fixed;
   z-index: 2;
-  width: 1400px;
+  width: 100%;
   margin-top: 0;
 }
 .nav-bar01 ul {
@@ -86,25 +103,21 @@ footer {
   font-weight: bolder;
 }
 
+.c__c .d__d {
+  background-color: #1fbd4e;
+  border: 1px solid #1fbd4e;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 700;
+}
+
 #abrir {
   display: none;
 }
 
 .container {
-  margin-top: 2.5rem;
+  margin-top: 8.5rem;
   margin-bottom: 1.5rem;
-}
-
-.logo {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.logo img {
-  width: 30rem;
-  height: 4.25rem;
-  margin-bottom: auto 0;
-  transition: 0.5s;
 }
 
 /*index*/
@@ -551,12 +564,16 @@ h1 {
 }
 
 .si:hover,
-.no:hover,
 .confirm:hover,
 #contratarServicio:hover,
-#volver:hover,
 #siguiente:hover {
-  background-color: #136788;
+  background-color: #1fbd4e;
+  color: #f4f9f9;
+}
+
+.no:hover,
+#volver:hover {
+  background-color: #da5b5b;
   color: #f4f9f9;
 }
 
@@ -640,10 +657,24 @@ iframe {
   width: 100%;
 }
 
+.form-label {
+  margin: 0.5rem 0;
+}
+
+.motivo {
+  margin: 1rem;
+}
+
+.mensaje {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: -1rem;
+}
+
 .footer {
   text-align: center;
-  height: 30px;
-  margin: 1rem 0;
+  height: 4rem;
+  margin: 0.9rem 0;
 }
 
 .footer p {
@@ -653,13 +684,23 @@ iframe {
 .footer p a {
   text-decoration: none;
   color: #f0f0f0;
+  font-weight: 600;
+}
+
+.chg {
+  color: #323232;
+  margin-top: 0;
+}
+.chg a {
+  text-decoration: none;
+  color: #f0f0f0;
 }
 
 .social__media {
   display: flex;
   flex-flow: column wrap;
   position: fixed;
-  top: 35%;
+  top: 37%;
   right: 0;
 }
 .social__media .social__icon {
@@ -727,10 +768,6 @@ iframe {
   .nav-bar01,
   footer {
     width: 100%;
-  }
-  .logo img {
-    width: 40rem;
-    height: 4.75rem;
   }
   .main-Conteiner {
     grid-template-columns: 1fr 1fr;
@@ -850,7 +887,7 @@ iframe {
   }
   .nav-bar01 {
     flex-direction: column;
-    height: 9rem;
+    height: 10rem;
   }
   .nav-bar ul {
     flex-direction: column;
@@ -860,10 +897,17 @@ iframe {
     margin: 2px;
     padding: 1px;
   }
-  .logo img {
-    width: 35rem;
-    height: 4.75rem;
-    margin-top: 6rem !important;
+  .logo {
+    width: 2rem !important;
+  }
+  .logo-img {
+    margin: 0.4rem !important;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+  }
+  .container {
+    margin-top: 15.5rem;
   }
   .main-Conteiner {
     grid-template-columns: 1fr;
@@ -971,20 +1015,19 @@ iframe {
   }
 }
 @media (max-width: 600px) {
+  header {
+    height: 6rem;
+    background-color: #fff;
+  }
+  .container {
+    margin-top: 10rem;
+  }
   .container,
   footer {
     width: 100%;
   }
   footer {
     font-size: 12px;
-  }
-  header {
-    position: absolute;
-    display: flex;
-    top: 0;
-    right: 0;
-    margin-top: 1rem;
-    margin-right: 1rem;
   }
   .nav-bar {
     display: flex;
@@ -999,7 +1042,7 @@ iframe {
     display: flex;
     position: relative;
     flex-direction: column;
-    margin-left: -150px;
+    margin-right: 10px !important;
     text-align: end;
     margin-top: 3rem !important;
     padding: 0;
@@ -1016,14 +1059,17 @@ iframe {
     transition: transform 0.4s ease, margin-top 0.4s ease;
   }
   .titulo--principal--1 {
-    margin-top: 7rem !important;
+    margin-top: 4.5rem !important;
     transform: scale(0.8);
   }
   .titulo--principal.animar {
     animation: achicar 0.6s ease forwards;
   }
   #abrir {
+    margin-top: 0.55rem;
+    margin-right: 0.2rem;
     display: block;
+    place-self: end;
     z-index: 100;
     width: 2.5rem;
     height: 2.5rem;
@@ -1034,28 +1080,27 @@ iframe {
     width: 100%;
   }
   .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: none;
-    width: 25rem;
-    height: 7rem !important;
-    margin-top: -20px;
+    position: relative;
     transition: all 0.7s ease;
+    width: 10rem;
+    height: auto;
+    border: none;
   }
   .logo--arriba {
-    width: 17rem;
-    height: auto;
-    margin-top: -120px !important;
+    position: fixed;
+    margin-top: 20px;
+    top: 0.8rem;
+    left: 1rem;
+    transform: scale(0.6);
+    transition: transform 0.8s ease, top 0.8s ease, left 0.8s ease;
   }
   .logo--arriba.animar {
-    animation: achicarMoverIzquierda 1.8s ease forwards;
+    animation: achicarMoverIzquierda 1.2s ease forwards;
   }
   .logo-img {
     text-align: center;
     border-radius: none;
-    width: 50%;
+    width: 8rem !important;
   }
   .nav-bar ul {
     flex-direction: column;
@@ -1240,17 +1285,19 @@ iframe {
   @keyframes achicar {
     0% {
       transform: scale(0.8);
+      margin-top: -3rem;
     }
     100% {
       transform: scale(1);
+      margin-top: 5rem;
     }
   }
   @keyframes achicarMoverIzquierda {
-    0% {
-      transform: scale(1) translateX(0);
+    from {
+      transform: scale(1) translate(0, 0);
     }
-    100% {
-      transform: scale(0.8) translateX(-50px);
+    to {
+      transform: scale(0.6) translate(0, 0);
     }
   }
   .logo > img {

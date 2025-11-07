@@ -6,6 +6,19 @@
 <a href="https://instagram.com/instagram.com/cristianhgon/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="instagram.com/cristianhgon/" height="30" width="40" /></a>
 </p>
 <h3>Trabajo final Javascript</h3>
+<h5>Es una página web de una Cooperativa que brinda servicios de internet por fibra óptica y por aire (Wireless). En su portada se comparten noticias y una breve reseña de la historia de la institución.
+El sitio cuenta con cuatro secciones principales:
+
+Servicios: donde se detallan los diferentes planes y precios disponibles.
+
+Quiénes somos: que presenta la historia y los valores de la Cooperativa.
+
+Solicitar servicio: un espacio para que los usuarios puedan gestionar su solicitud de conexión.
+
+Contacto: donde se ofrecen los medios para comunicarse con la Cooperativa.
+
+</h5>
+<h3>El trabajo que se realizo en javascript fue el siguiente:</h3>
 <p align="left">
 <b> Sección: Home </b>
 
@@ -22,6 +35,7 @@ Se implementó el menú “hamburguesa” con animaciones responsive usando Java
 Se implementó el menú “hamburguesa” con animaciones responsive usando JavaScript.
 
 <b> Sección: Solicitar Servicio</b>
+
 Esta sección contiene la mayor parte de la lógica de la aplicación:
 
 Se creó un formulario para que el usuario ingrese sus datos. Si algún campo está incompleto o el formato es incorrecto, se muestra un aviso.
@@ -36,11 +50,11 @@ Tras unos segundos, la ventana modal se cierra y el usuario es redirigido a la p
 
 <b> Sección: Contacto</b>
 
-Se implementó el menú “hamburguesa” con animaciones responsive usando JavaScript.
+Se implementó el menú “hamburguesa” con animaciones usando JavaScript., es sitio es totalmente responsive.
 
 Se configuró el formulario de contacto para enviar correos electrónicos mediante EmailJS.
 
-Se uso una SweetAlert2 para la notificación del envio del mail.
+Se uso una alerta de SweetAlert2 para la notificación del envio del mail.
 
 </p>
 

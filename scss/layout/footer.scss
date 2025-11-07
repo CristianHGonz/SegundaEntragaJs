@@ -3,8 +3,8 @@
 
 .footer {
   text-align: center;
-  height: 30px;
-  margin: 1rem 0;
+  height: 4rem;
+  margin: 0.9rem 0;
 }
 .footer p {
   color: #f0f0f0;
@@ -12,4 +12,14 @@
 .footer p a {
   text-decoration: none;
   color: #f0f0f0;
+  font-weight: 600;
+}
+.chg{
+  color: $text-color-secondary;
+  margin-top: 0;
+  
+  a{
+     text-decoration: none;
+  color: #f0f0f0;
+  }
 }

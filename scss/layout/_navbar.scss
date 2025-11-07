@@ -1,16 +1,33 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixin-extend" as *;
 
+header{
+  display: flex;
+  background-color: rgb(233, 229, 229);
+  flex-direction: column;
+  position: fixed;
+  z-index: 30;
+  width: 100%;
+  }
+.logo{
+  border-bottom: 2px solid rgb(233, 229, 229);
+  
+  width: 100%;
+}
+.logo-img{
+  
+  width: 15rem;
+  margin: 0.5em 0 0.5em 1em;
+}
 .nav-bar01 {
   background-color: $bg-nav-fotter;
   border-radius: 0 0 10px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 3rem;
-  position: fixed;
+  height: 3.0rem;
   z-index: 2;
-  width: 1400px;
+  width:100%;
   margin-top: 0;
 
   ul {
@@ -39,4 +56,15 @@
   border-radius: 10px;
   background-color: #f0f0f0;
   font-weight: bolder;
+}
+.c__c{
+  
+  
+  .d__d{
+    background-color:#1fbd4e;
+    border: 1px solid #1fbd4e;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 700;
+  }
 }
