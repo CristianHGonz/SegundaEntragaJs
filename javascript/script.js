@@ -138,14 +138,14 @@ const planeador = async () => {
                         </p>
                     </div>
                 </div>`
-                
+
                     divModal.appendChild(divNew)
                     divNew.addEventListener("click", () => {
                         divModal.style.display = "none"
                     })
                     return
-                } 
-                
+                }
+
                 else {
 
                     contrato.pop()
@@ -156,11 +156,11 @@ const planeador = async () => {
 
                 }
             })
-           
+
         })
     } catch (err) {
 
-        if (muestraPlanes) muestraPlanes.innerHTML = "<p class='error'>Disculpe las molestias, no se pudieron cargar los planes. DA AVISO AL ADMINISTRADOR.</p>"
+        if (muestraPlanes) muestraPlanes.innerHTML = `<p class="error">Disculpe las molestias, no se pudieron cargar los planes. DA AVISO AL ADMINISTRADOR.</p>`
     }
 }
 
@@ -189,11 +189,11 @@ btnConfirmar.addEventListener("click", () => {
 
     errorPlanes.forEach((err) => (err.innerHTML = ""))
     let hayError = false
-    
+
     if (contrato.length === 0) {
-        
-         if (errorPlanes && errorPlanes.length > 0) {
-            
+
+        if (errorPlanes && errorPlanes.length > 0) {
+
             errorPlanes.forEach(err => {
                 err.innerHTML = "Debes seleccionar un plan"
             })
@@ -267,16 +267,16 @@ const siguiente = document.querySelector("#siguiente").addEventListener("click",
     }
 
     if (hayError) return
-      instalacion.classList.remove("fade-in")
+    instalacion.classList.remove("fade-in")
     instalacion.classList.add("fade-out")
     setTimeout(() => {
-    if (instalacion) instalacion.style.display = "none"
-            }, 500)
-            setTimeout(() => {
-                if (planesDisponibles) planesDisponibles.style.display = "block" 
-                planesDisponibles.classList.add("fade-in")
-        }, 500)
-    })
+        if (instalacion) instalacion.style.display = "none"
+    }, 500)
+    setTimeout(() => {
+        if (planesDisponibles) planesDisponibles.style.display = "block"
+        planesDisponibles.classList.add("fade-in")
+    }, 500)
+})
 
 
 const politicas = document.querySelector("#politicas")
@@ -371,10 +371,10 @@ contratarServicio.addEventListener("click", () => {
     }
     let datosContrato = new final(nombreFinal, direccionFinal, dniFinal, emailFinal, contactoFinal, contrato)
     localStorage.setItem("datosContrato", JSON.stringify(datosContrato))
-    const datos = JSON.parse(localStorage.getItem("datosContrato"));
-    const plan = datos.contrato[0];
-    const SERVICE_ID = "service_1nlz5fr";
-    const TEMPLATE_ID = "template_aj4n5tq";
+    const datos = JSON.parse(localStorage.getItem("datosContrato"))
+    const plan = datos.contrato[0]
+    const SERVICE_ID = "service_1nlz5fr"
+    const TEMPLATE_ID = "template_aj4n5tq"
     emailjs.send(SERVICE_ID, TEMPLATE_ID, {
         nombre: datos.nombreFinal,
         direccion: datos.direccionFinal,
@@ -387,8 +387,8 @@ contratarServicio.addEventListener("click", () => {
     })
         .then(() => {
             setTimeout(() => {
-  window.location.replace("../index.html");
-}, 5000);
+                window.location.replace("../index.html")
+            }, 5000);
             divModal.innerHTML = ""
             divModal.style.display = "flex"
             let divNew = document.createElement("div")
